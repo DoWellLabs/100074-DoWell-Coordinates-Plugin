@@ -1,0 +1,1 @@
+zip -r plugin.zip build coordinates-app.php
