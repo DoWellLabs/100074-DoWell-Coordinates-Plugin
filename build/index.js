@@ -49,7 +49,7 @@ function App() {
     setCoords = _useState6[1];
   var handleFormSubmit = /*#__PURE__*/function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee(e) {
-      var response, result, Coords;
+      var response, result, _Coords$lat, _Coords$lng, Coords, lat, lng;
       return _regeneratorRuntime().wrap(function _callee$(_context) {
         while (1) switch (_context.prev = _context.next) {
           case 0:
@@ -90,31 +90,37 @@ function App() {
             return response.json();
           case 14:
             result = _context.sent;
+            console.log(result);
             if (result.error) {
               alert(result.error);
             } else {
               Coords = result.Coords;
+              console.log(Coords);
+              lat = (_Coords$lat = Coords.lat) === null || _Coords$lat === void 0 ? void 0 : _Coords$lat.match(/[+-]?\d+(\.\d+)?/)[0];
+              lng = (_Coords$lng = Coords.lng) === null || _Coords$lng === void 0 ? void 0 : _Coords$lng.match(/[+-]?\d+(\.\d+)?/)[0];
+              console.log(lat, lng);
               setCoords({
-                lat: Coords.lat,
-                lng: Coords.lng
+                lat: lat,
+                lng: lng
               });
             }
-            _context.next = 22;
+            _context.next = 23;
             break;
-          case 18:
-            _context.prev = 18;
+          case 19:
+            _context.prev = 19;
             _context.t0 = _context["catch"](6);
             console.log('error', _context.t0);
             alert('An error occurred while fetching coordinates. Please try again.');
-          case 22:
-            _context.prev = 22;
+            // alert(error)
+          case 23:
+            _context.prev = 23;
             setLoading(false);
-            return _context.finish(22);
-          case 25:
+            return _context.finish(23);
+          case 26:
           case "end":
             return _context.stop();
         }
-      }, _callee, null, [[6, 18, 22, 25]]);
+      }, _callee, null, [[6, 19, 23, 26]]);
     }));
     return function handleFormSubmit(_x2) {
       return _ref.apply(this, arguments);

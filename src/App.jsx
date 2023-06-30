@@ -41,18 +41,24 @@ function App() {
       }
 
       const result = await response.json();
+      console.log(result)
       if (result.error) {
         alert(result.error);
       } else {
         const { Coords } = result;
+        console.log(Coords)
+        const lat = Coords.lat?.match(/[+-]?\d+(\.\d+)?/)[0]
+        const lng = Coords.lng?.match(/[+-]?\d+(\.\d+)?/)[0]
+        console.log(lat,lng)
         setCoords({
-          lat: Coords.lat,
-          lng: Coords.lng
+          lat,
+          lng
         });
       }
     } catch (error) {
       console.log('error', error);
-      alert('An error occurred while fetching coordinates. Please try again.');
+     alert('An error occurred while fetching coordinates. Please try again.');
+      // alert(error)
     } finally {
       setLoading(false);
     }
