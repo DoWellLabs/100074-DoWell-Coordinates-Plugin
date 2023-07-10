@@ -27,7 +27,7 @@ In the WordPress admin area, you'll find a menu item called "Dowell Coordinates"
 On the Dowell Coordinates page, you'll see a map displayed along with options to manage the coordinates. Use the provided interface to add, edit, or delete coordinates as needed.
 
 ## Configuration
-# Setting Map Size
+### Setting Map Size
 - Customize the plugin's scripts and stylesheets located in the `react-front-end/dist/assets/` directory.
 - Adjust the size of 'map-container' class to your liking. NOTE: Map only displays if the map container is given absolute hieght property
 
